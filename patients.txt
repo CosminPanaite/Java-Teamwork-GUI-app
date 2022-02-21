@@ -1,0 +1,5 @@
+1;Caju;Baju;10;Tartru
+2;Cosmin;Pana;25;No
+3;Mircea;Pana;23;No
+4;Miki;Cipi;26;No
+22;Cosmin;Panaite ;23;No

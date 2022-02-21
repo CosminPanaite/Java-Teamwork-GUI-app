@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="900" maxWidth="1000" minHeight="300" minWidth="300" prefHeight="500.0" prefWidth="750.0"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="Controller.Controller">
+    <tabs>
+        <Tab text="Patients">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <SplitPane dividerPositions="0.55" layoutX="194.0" layoutY="97.0" prefHeight="369.6"
+                                   prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <TableView fx:id="patientTableView" prefHeight="368.0" prefWidth="326.4">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="ID">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="id"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="FirstName">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="firstName"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="LastName">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="lastName"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Age">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="age"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Problem">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="problem"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                </TableView>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label fx:id="idSearch_tf" alignment="BOTTOM_CENTER" prefHeight="17.0"
+                                               prefWidth="59.0" text="FirstName"/>
+                                        <TextField fx:id="tfSearchFirstName"/>
+                                        <Label fx:id="idSearch_tf1" alignment="BOTTOM_CENTER" layoutX="148.0"
+                                               layoutY="114.0" lineSpacing="10.0" prefHeight="17.0" prefWidth="59.0"
+                                               text="LastName"/>
+                                        <TextField fx:id="tfSearchLastName"/>
+                                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                                onAction="#searchPacientHandler" prefHeight="25.0" prefWidth="60.0"
+                                                text="Search">
+                                            <VBox.margin>
+                                                <Insets/>
+                                            </VBox.margin>
+                                        </Button>
+                                        <Button fx:id="sortByIdPatientBtn" mnemonicParsing="false"
+                                                onAction="#sortPatientById" text="Sort by Id"/>
+                                        <Separator prefHeight="50.0" prefWidth="335.0"/>
+                                        <GridPane prefHeight="220.0" prefWidth="335.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints fillWidth="false" halignment="RIGHT"
+                                                                   hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0"
+                                                                   prefWidth="65.0"/>
+                                                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="220.0"
+                                                                   minWidth="10.0" prefWidth="207.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="ID" GridPane.rowIndex="1"/>
+                                                <Label text="FirstName" GridPane.rowIndex="2"/>
+                                                <Label text="LastName" GridPane.rowIndex="3"/>
+                                                <Label text="Age" GridPane.rowIndex="4"/>
+                                                <Label text="Problem" GridPane.rowIndex="5"/>
+                                                <TextField fx:id="id_tf" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="firstName_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="2">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="lastName_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="3">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="age_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="4">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="problem_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="5">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#addPatientButton"
+                                                        text="AddPatient" GridPane.columnIndex="1"
+                                                        GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                                                    <GridPane.margin>
+                                                        <Insets right="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#clearPatientFields"
+                                                        prefHeight="26.0" prefWidth="57.0" text="Clear"
+                                                        GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#updatePatientButton"
+                                                        text="Update" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#deletePatientButton"
+                                                        text="Delete" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                    <GridPane.margin>
+                                                        <Insets left="120.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                            </children>
+                                        </GridPane>
+                                        <Button mnemonicParsing="false" onAction="#filterByAgeAndAffection"
+                                                text="FILTER by"/>
+                                        <Label text="AGE"/>
+                                        <TextField fx:id="tfFilterAge"/>
+                                        <Label text="PROBLEM"/>
+                                        <TextField fx:id="tfFilterProblem"/>
+                                    </children>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Appointemnts">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <SplitPane dividerPositions="0.55" layoutX="6.0" prefHeight="469.6" prefWidth="750.4"
+                                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <TableView fx:id="appointmentTableView" prefHeight="468.0" prefWidth="410.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="ID">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="id"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="PatientID">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="patientIdentifier"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Date">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="dateAppointemnt"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                </TableView>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <TextField fx:id="tfSearchIDApp"/>
+                                        <Button mnemonicParsing="false" onAction="#searchAppointmentsByID"
+                                                text="Search an ID"/>
+                                        <Separator prefHeight="50.0" prefWidth="335.0"/>
+                                        <Button mnemonicParsing="false" onAction="#sortAppointmentById"
+                                                text="Sort by Id"/>
+                                        <GridPane prefHeight="220.0" prefWidth="335.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="130.0"
+                                                                   minWidth="10.0" prefWidth="65.0"/>
+                                                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="220.0"
+                                                                   minWidth="10.0" prefWidth="207.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints/>
+                                                <RowConstraints/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="ID" GridPane.rowIndex="1"/>
+                                                <Label text="PatientID" GridPane.rowIndex="2"/>
+                                                <Label text="Date " GridPane.rowIndex="3"/>
+                                                <TextField fx:id="idAp_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="1">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="idPa_tf" text="" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="2">//idAp_tf, idPa_tf, date_tf
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="date_tf" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="3">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0" right="30.0"/>
+                                                    </GridPane.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#addAppointmentButton"
+                                                        text="Add Appointment" GridPane.columnIndex="1"
+                                                        GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                                                    <GridPane.margin>
+                                                        <Insets right="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#clearAppointmentFields"
+                                                        prefHeight="26.0" prefWidth="57.0" text="Clear"
+                                                        GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#deleteAppointmentButton"
+                                                        text="Delete " GridPane.columnIndex="1"
+                                                        GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+                                                    <GridPane.margin>
+                                                        <Insets right="80.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#updateAppointmentButton"
+                                                        text="Update" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                    <GridPane.margin>
+                                                        <Insets left="30.0"/>
+                                                    </GridPane.margin>
+                                                </Button>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
